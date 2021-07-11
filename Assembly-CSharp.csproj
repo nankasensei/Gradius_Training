@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4CE07701-134F-9DD0-F36C-F385BB4D61DF}</ProjectGuid>
+    <ProjectGuid>{379E2E54-677C-21DE-68DB-F7F6C3FB1207}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -53,6 +53,7 @@
     <UnityVersion>2020.3.13f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\ArrowBehaviourScript.cs" />
     <Compile Include="Assets\Script\GeneratorBehaviour.cs" />
     <Compile Include="Assets\Script\AIBehaviour.cs" />
     <Compile Include="Assets\First person controller\Scripts\FirstPersonMovement.cs" />
@@ -64,7 +65,10 @@
     <Compile Include="Assets\Script\PlayerBehavior.cs" />
     <Compile Include="Assets\First person controller\Scripts\Components\Crouch.cs" />
     <Compile Include="Assets\First person controller\Scripts\Components\GroundCheck.cs" />
-    <Compile Include="Assets\Script\ArrowBehaviourScript.cs" />
+    <Compile Include="Assets\Script\ArtilleryBehavior.cs" />
+    <Compile Include="Assets\Script\MainCameraBehaviour.cs" />
+    <Compile Include="Assets\Script\BulletEnemyBehaviour.cs" />
+    <Compile Include="Assets\Script\DuckerBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

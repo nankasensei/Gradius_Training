@@ -32,7 +32,8 @@ public class ArrowBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Speed * Time.deltaTime;
+        Vector3 speedWorld = Speed + new Vector3(MainCameraBehaviour.MoveSpeed, 0f, 0f);
+        transform.position += speedWorld * Time.deltaTime;
     }
 
     private void LateUpdate()

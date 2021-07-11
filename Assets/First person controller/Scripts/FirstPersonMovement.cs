@@ -24,6 +24,7 @@ public class FirstPersonMovement : MonoBehaviour
             movingSpeed = speedOverrides[speedOverrides.Count - 1]();
         velocity.y = Input.GetAxis("Vertical") * movingSpeed * Time.deltaTime;
         velocity.x = Input.GetAxis("Horizontal") * movingSpeed * Time.deltaTime;
-        transform.Translate(velocity.x, velocity.y, 0);
+        //transform.Translate(velocity.x, velocity.y, 0);
+        transform.localPosition += new Vector3(velocity.x, velocity.y, 0);
     }
 }
