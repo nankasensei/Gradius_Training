@@ -7,6 +7,11 @@ public class MainCameraBehaviour : MonoBehaviour
     public const float MoveSpeed = 1.0f;
     private Vector3 Speed;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        Application.targetFrameRate = 15;
+    }
+
     void Start()
     {
         Speed = new Vector3(1.0f, 0f, 0f) * MoveSpeed;

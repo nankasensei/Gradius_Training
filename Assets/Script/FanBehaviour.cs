@@ -29,7 +29,7 @@ public class FanBehaviour : MonoBehaviour
     {
         transform.position += Time.deltaTime * SpeedDir * SpeedScale;
 
-        Vector3 playerPos = GameObject.Find("First person controller").transform.position;
+        Vector3 playerPos = GameObject.Find("Player").transform.position;
         switch (Flag)
         {
             case 0:
