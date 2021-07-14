@@ -59,16 +59,18 @@
     <Compile Include="Assets\First person controller\Scripts\FirstPersonMovement.cs" />
     <Compile Include="Assets\First person controller\Scripts\Components\Zoom.cs" />
     <Compile Include="Assets\First person controller\Scripts\Components\Jump.cs" />
+    <Compile Include="Assets\Script\MainCameraBehaviour.cs" />
     <Compile Include="Assets\First person controller\Scripts\Components\FirstPersonAudio.cs" />
     <Compile Include="Assets\First person controller\Scripts\FirstPersonLook.cs" />
     <Compile Include="Assets\Script\FanBehaviour.cs" />
-    <Compile Include="Assets\Script\PlayerBehavior.cs" />
-    <Compile Include="Assets\First person controller\Scripts\Components\Crouch.cs" />
-    <Compile Include="Assets\First person controller\Scripts\Components\GroundCheck.cs" />
     <Compile Include="Assets\Script\ArtilleryBehavior.cs" />
-    <Compile Include="Assets\Script\MainCameraBehaviour.cs" />
+    <Compile Include="Assets\Script\PlayerBehavior.cs" />
     <Compile Include="Assets\Script\BulletEnemyBehaviour.cs" />
     <Compile Include="Assets\Script\DuckerBehaviour.cs" />
+    <Compile Include="Assets\First person controller\Scripts\Components\Crouch.cs" />
+    <Compile Include="Assets\First person controller\Scripts\Components\GroundCheck.cs" />
+    <Compile Include="Assets\Script\RushBehavior.cs" />
+    <Compile Include="Assets\Script\RushWaveBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
