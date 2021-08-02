@@ -12,7 +12,7 @@ public class DoorBehaviour : MonoBehaviour
         Colliding,
     }
 
-    public const float RotateSpeedMax = Mathf.PI / 3.0f;
+    public const float RotateSpeedMax = Mathf.PI / 4.0f;
     public const float RotateAngleMax = Mathf.PI / 2.0f;
     public const float RotateAcc = Mathf.PI / 3.0f;
     public float RotateSpeed;
@@ -39,9 +39,11 @@ public class DoorBehaviour : MonoBehaviour
         if (MyOldAngle > Mathf.PI)
             MyOldAngle -= Mathf.PI * 2;
 
+        //‰ñ“]‘¬“xŒvŽZ----------------------------------------------------------------------------------
         switch(Status)
         {
             case DoorStatus.Closed:
+                RotateSpeed = 0.0f;
                 break;
             case DoorStatus.Closing:
                 {
@@ -69,13 +71,11 @@ public class DoorBehaviour : MonoBehaviour
                 break;
         }
 
-        //‰ñ“]
+        //‰ñ“]ŒvŽZ----------------------------------------------------------------------------------
         transform.Rotate(axisY, RotateSpeed * Mathf.Rad2Deg * Time.deltaTime);
-    }
+        
 
-    private void LateUpdate()
-    {
-        Vector3 axisY = new Vector3(0, 1.0f, 0);
+        //‰ñ“]•â³ŒvŽZ------------------------------------------------------------------------------
         //V‚µ‚¢ˆÊ’u‚ÌŒvŽZ
         MyAngle = transform.rotation.eulerAngles.y * Mathf.Deg2Rad;
         if (MyAngle > Mathf.PI)
@@ -86,7 +86,6 @@ public class DoorBehaviour : MonoBehaviour
         {
             Status = DoorStatus.Closed;
             transform.rotation = Quaternion.AngleAxis(0.0f, axisY);
-            RotateSpeed = 0.0f;
         }
 
         //‰ñ“]§ŒÀ
@@ -96,13 +95,10 @@ public class DoorBehaviour : MonoBehaviour
             transform.rotation = Quaternion.AngleAxis(-RotateAngleMax * Mathf.Rad2Deg, axisY);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Status = DoorStatus.Colliding;
-    }
-
     private void OnCollisionStay(Collision collision)
     {
+        Status = DoorStatus.Colliding;
+
         //Œ»ÝˆÊ’u‚ÌŒvŽZ
         float myAngle = transform.rotation.eulerAngles.y * Mathf.Deg2Rad;
         if (myAngle > Mathf.PI)
