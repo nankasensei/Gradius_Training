@@ -12,18 +12,21 @@ public class DoorBehaviour : MonoBehaviour
         Colliding,
     }
 
-    public const float RotateSpeedMax = Mathf.PI / 6.0f;
+    public const float RotateSpeedMax = Mathf.PI / 3.0f;
     public const float RotateAngleMax = Mathf.PI / 2.0f;
+    public const float RotateAcc = Mathf.PI / 3.0f;
     public float RotateSpeed;
     public float MyOldAngle;
     public float MyAngle;
-    private bool IsColliding;
+    private DoorStatus Status;
 
     // Start is called before the first frame update
     void Start()
     {
         RotateSpeed = 0.0f;
-        IsColliding = false;
+        MyOldAngle = 0.0f;
+        MyAngle = 0.0f;
+        Status = DoorStatus.Closed;
     }
 
     // Update is called once per frame
@@ -36,13 +39,34 @@ public class DoorBehaviour : MonoBehaviour
         if (MyOldAngle > Mathf.PI)
             MyOldAngle -= Mathf.PI * 2;
 
-        //一定距離離れたら自動閉める
-        if (Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, transform.position) > 1.5f)
+        switch(Status)
         {
-            if (MyOldAngle > 0.0f)
-                RotateSpeed = -RotateSpeedMax;
-            if (MyOldAngle < 0.0f)
-                RotateSpeed = RotateSpeedMax;
+            case DoorStatus.Closed:
+                break;
+            case DoorStatus.Closing:
+                {
+                    if (MyOldAngle > 0.0f)
+                        RotateSpeed += -RotateAcc * Time.deltaTime;
+                    if (MyOldAngle < 0.0f)
+                        RotateSpeed += RotateAcc * Time.deltaTime;
+                }
+                break;
+            case DoorStatus.Swing:
+                //一定距離離れたら自動閉める
+                if (Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, transform.position) > 1.5f)
+                {
+                    Status = DoorStatus.Closing;
+                }
+                else
+                {
+                    if (RotateSpeed > 0.0f)
+                        RotateSpeed += -RotateAcc * Time.deltaTime;
+                    if (RotateSpeed < 0.0f)
+                        RotateSpeed += RotateAcc * Time.deltaTime;
+                }
+                break;
+            case DoorStatus.Colliding:
+                break;
         }
 
         //回転
@@ -57,9 +81,10 @@ public class DoorBehaviour : MonoBehaviour
         if (MyAngle > Mathf.PI)
             MyAngle -= Mathf.PI * 2;
 
-        //閉める
+        //閉めるチェック
         if ((MyOldAngle > 0.0f && MyAngle <= 0.0f) || (MyOldAngle < 0.0f && MyAngle >= 0.0f))
         {
+            Status = DoorStatus.Closed;
             transform.rotation = Quaternion.AngleAxis(0.0f, axisY);
             RotateSpeed = 0.0f;
         }
@@ -73,7 +98,7 @@ public class DoorBehaviour : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        IsColliding = true;
+        Status = DoorStatus.Colliding;
     }
 
     private void OnCollisionStay(Collision collision)
@@ -98,7 +123,6 @@ public class DoorBehaviour : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        IsColliding = false;
-        RotateSpeed = 0.0f;
+        Status = DoorStatus.Swing;
     }
 }

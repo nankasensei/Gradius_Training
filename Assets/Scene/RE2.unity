@@ -617,7 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97fca36bd81de7c4cafce7bbf02ca611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 1
   canRun: 1
   runSpeed: 9
   runningKey: 304
@@ -708,7 +708,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1575223515}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.21
   m_Height: 1.2
   m_Direction: 1
