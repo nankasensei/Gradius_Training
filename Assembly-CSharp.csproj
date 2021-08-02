@@ -67,14 +67,16 @@
     <Compile Include="Assets\Script\RE2\LerpTest.cs" />
     <Compile Include="Assets\Script\FanBehaviour.cs" />
     <Compile Include="Assets\Script\ArtilleryBehavior.cs" />
+    <Compile Include="Assets\Script\RE2\DebugManager.cs" />
     <Compile Include="Assets\Script\PlayerBehavior.cs" />
     <Compile Include="Assets\Script\BulletEnemyBehaviour.cs" />
     <Compile Include="Assets\Script\DuckerBehaviour.cs" />
-    <Compile Include="Assets\First person controller\Scripts\Components\Crouch.cs" />
-    <Compile Include="Assets\First person controller\Scripts\Components\GroundCheck.cs" />
     <Compile Include="Assets\Script\RE2\PlayerBehaviourScript.cs" />
+    <Compile Include="Assets\First person controller\Scripts\Components\Crouch.cs" />
     <Compile Include="Assets\Script\RE2\EnemyBehaviourScript.cs" />
-    <Compile Include="Assets\Script\RE2\DebugManager.cs" />
+    <Compile Include="Assets\First person controller\Scripts\Components\GroundCheck.cs" />
+    <Compile Include="Assets\Script\RE2\CharacterBehaviour.cs" />
+    <Compile Include="Assets\Script\RE2\DoorBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
